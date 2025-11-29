@@ -44,8 +44,8 @@ def generate_page(from_path, template_path, dest_path, basepath):
 
   template = template.replace("{{ Title }}", title)
   template = template.replace("{{ Content }}", html_content)
-  template = template.replace("href=/", f"href={basepath}")
-  template = template.replace("src=/", f"src={basepath}")
+  template = template.replace('href="/', f"href=\"{basepath}")
+  template = template.replace('src="/', f"src=\"{basepath}")
 
   dest_dir = os.path.dirname(dest_path)
   if not os.path.exists(dest_dir):
@@ -73,8 +73,8 @@ def main():
   args = sys.argv
   
   basepath = "/"
-  if args[0]:
-    basepath = args[0]
+  if args[1]:
+    basepath = args[1]
 
   copy_static_to_public()
   
