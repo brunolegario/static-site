@@ -1,6 +1,6 @@
 import unittest
 from textnode import TextNode, TextType
-from leafnode import LeafNode
+from htmlnode import LeafNode
 
 class TestTextNode(unittest.TestCase):
   def test_eq(self):
@@ -40,7 +40,7 @@ class TestTextNode(unittest.TestCase):
     node = TextNode("An image", TextType.IMAGE, "https://www.example.com/image.png")
     self.assertEqual(node.to_html(), LeafNode("img", None, props={"src": "https://www.example.com/image.png", "alt": "An image"}))
 
-  def test_text(self):
+  def test_text_to_html(self):
     node = TextNode("This is a text node", TextType.PLAIN)
     html_node = node.to_html()
     self.assertEqual(html_node.tag, None)
