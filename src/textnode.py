@@ -48,6 +48,6 @@ class TextNode:
     elif self.text_type == TextType.IMAGE:
       if self.url is None:
         raise ValueError("URL must be provided for image text type")
-      return LeafNode("img", None, props={"src": self.url, "alt": self.text})
+      return LeafNode("img", "", props={"src": self.url, "alt": self.text})
     else:
       raise Exception("Error: Unsupported text type")
